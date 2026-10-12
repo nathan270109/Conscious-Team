@@ -1,18 +1,292 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+/* ================================================================= */
+/* VARIÁVEIS E CONFIGURAÇÕES GLOBAIS                                 */
+/* ================================================================= */
+:root {
+    --primary-color: #d3532f;
+    --primary-hover: #ff4d00;
+    --bg-main: #0f1113;
+    --text-main: #ffffff;
+    --text-muted: #d4d4d4;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    
-    background-color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-main {
-    
+/* ================================================================= */
+/* CABEÇALHO (HEADER)                                                */
+/* ================================================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(15, 17, 19, 0);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Espaço ideal entre a logo e o texto */
+    text-decoration: none;
+}
+
+/* Ajuste fino do tamanho e proporção da imagem da logo */
+.logo-img {
+    height: 40px;      /* Altura fixa controlada (você pode alterar para 35px ou 45px se preferir) */
+    width: auto;       /* Mantém a largura proporcional automática para não distorcer */
+    object-fit: contain;
+}
+
+.name-team {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    line-height: 1; /* Garante que o texto fique centralizado perfeitamente com a logo */
+}
+
+.name-team span {
+    color: var(--primary-color);
+}
+
+.header nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.header nav a:hover {
+    color: var(--primary-color);
+}
+/* ================================================================= */
+/* SEÇÃO HERO (INÍCIO)                                               */
+/* ================================================================= */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5rem;
+    margin-top: 60px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(211, 47, 47, 0.3);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+}
+
+/* ================================================================= */
+/* SEÇÃO DA EQUIPE (CARROSSEL HORIZONTAL NO SCROLL)                   */
+/* ================================================================= */
+.team-section {
+    height: 400vh; /* Altura que define o tempo de duração do scroll no carrossel */
+    position: relative;
+}
+
+.team-sticky-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: max(5vw, calc((100vw - 1200px) / 2));
+    overflow: hidden;
+}
+
+.titulo-secao {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: flex;
+    gap: 2rem;
+    will-change: transform;
+}
+
+/* Estilo Individual dos Cards */
+.card-membro {
+    min-width: 340px;
+    max-width: 340px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(8px);
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.card-membro:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.avatar-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem auto;
+    border: 3px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.card-membro:hover .avatar-container {
+    border-color: var(--primary-color);
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-membro h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.cargo {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.descricao {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Links do Portfólio */
+.links-portfolio {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.2rem;
+}
+
+.links-portfolio a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.links-portfolio a:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* ================================================================= */
+/* RODAPÉ (FOOTER)                                                   */
+/* ================================================================= */
+footer {
+    text-align: center;
+    padding: 2.5rem 0;
+    background-color: rgba(5, 5, 5, 0.161);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ================================================================= */
+/* FUNDO INTERATIVO COM GRADIENTE                                    */
+/* ================================================================= */
+#bg-interactive {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: #000000;
+    background-image: 
+        radial-gradient(circle at var(--mouse-x, 30%) var(--mouse-y, 20%), rgba(140, 60, 30, 0.45) 0%, transparent 50%),
+        radial-gradient(circle at calc(100% - var(--mouse-x, 70%)) calc(100% - var(--mouse-y, 80%)), rgba(45, 75, 60, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 30%, rgba(249, 248, 248, 0.1) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(70, 117, 93, 0.45) 0%, transparent 50%);
+    filter: blur(40px);
+    transition: background-position 0.2s ease-out;
 }

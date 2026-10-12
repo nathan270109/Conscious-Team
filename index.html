@@ -1,31 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conscious Team</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="" alt="">
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="logo-container">
+            <img class="logo-img" src="img/logo-branca.png" alt="Logo Conscious Team">
+
         </div>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#equipe">Integrantes</a>
+        </nav>
     </header>
 
-    <main>
-        <section>
-            <div>
-                <h2>Desenvolvedor</h2>
+    <!-- Seção Hero -->
+    <section id="home" class="hero">
+        <h1>Inovação & Propósito</h1>
+        <p>Conheça os talentos por trás da CONSCIOUS TEAM e explore nossos portfólios.</p>
+        <a href="#equipe" class="btn">Ver Integrantes</a>
+    </section>
 
+    <!-- Seção da Equipe (Carrossel no Scroll) -->
+    <section id="equipe" class="team-section">
+        <div class="team-sticky-wrapper">
+            <h2 class="titulo-secao">Nossa Equipe</h2>
+
+            <div class="team-grid">
+                <!-- Card 1 -->
+                <div class="card-membro">
+                    <div class="avatar-container">
+                        <img src="/img/integrantes/WhatsApp Image 2026-10-12 at 11.10.12.jpeg"
+                            alt="Foto do Integrante 1">
+                    </div>
+                    <h3>Eduardo Nascimento Alves</h3>
+                    <p class="cargo">Desenvolvedor Front-end</p>
+                    <p class="descricao">Especialista em criar interfaces modernas, acessíveis e focadas na experiência
+                        do usuário.</p>
+                    <div class="links-portfolio">
+                        <a href="https://eduardoalves10.github.io/meu-portifolio-em-conjunto-com-a-turma/"
+                            target="_blank">Portfólio</a>
+                        <a href="
+https://www.linkedin.com/in/eduardo-nascimento-alves
+" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/eduardoalves10" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-membro">
+                    <div class="avatar-container">
+                        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 2">
+                    </div>
+                    <h3>Membro 2</h3>
+                    <p class="cargo">UI/UX Designer</p>
+                    <p class="descricao">Focado em criar protótipos funcionais e sistemas de design elegantes e
+                        intuitivos.</p>
+                    <div class="links-portfolio">
+                        <a href="#" target="_blank">Behance</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">Dribbble</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-membro">
+                    <div class="avatar-container">
+                        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 3">
+                    </div>
+                    <h3>Membro 3</h3>
+                    <p class="cargo">Desenvolvedor Back-end</p>
+                    <p class="descricao">Construindo arquiteturas robustas, APIs eficientes e infraestrutura escalável.
+                    </p>
+                    <div class="links-portfolio">
+                        <a href="#" target="_blank">Portfólio</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-membro">
+                    <div class="avatar-container">
+                        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 4">
+                    </div>
+                    <h3>Membro 4</h3>
+                    <p class="cargo">Gerente de Projetos</p>
+                    <p class="descricao">Garantindo a entrega de metas, metodologias ágeis e forte liderança de time.
+                    </p>
+                    <div class="links-portfolio">
+                        <a href="#" target="_blank">Portfólio</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card-membro">
+                    <div class="avatar-container">
+                        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 5">
+                    </div>
+                    <h3>Membro 5</h3>
+                    <p class="cargo">Cientista de Dados</p>
+                    <p class="descricao">Transformando dados em insights valiosos e modelos de inteligência artificial.
+                    </p>
+                    <div class="links-portfolio">
+                        <a href="#" target="_blank">Portfólio</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">Kaggle</a>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Rodapé -->
     <footer>
-
+        <p>&copy; 2026 CONSCIOUS TEAM. Todos os direitos reservados.</p>
     </footer>
-    
+
+    <!-- Fundo Fixo Interativo -->
+    <div id="bg-interactive"></div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
