@@ -290,3 +290,53 @@ footer {
     filter: blur(40px);
     transition: background-position 0.2s ease-out;
 }
+
+/* ================================================================= */
+/* RESPONSIVIDADE (MEDIA QUERIES)                                    */
+/* ================================================================= */
+
+/* Para telas menores (Celulares e Tablets até 991px) */
+@media (max-width: 991px) {
+    /* Desativa a altura longa de 400vh para a página fluir naturalmente */
+    .team-section {
+        height: auto !important;
+        padding: 4rem 1.5rem;
+    }
+
+    /* Remove o efeito sticky para o conteúdo rolar normalmente no celular */
+    .team-sticky-wrapper {
+        position: relative !important;
+        height: auto !important;
+        overflow: visible !important;
+        padding-left: 0 !important;
+        align-items: center;
+    }
+
+    /* Transforma o carrossel em uma grade vertical ou coluna no mobile */
+    .team-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        transform: none !important; /* Reseta qualquer deslocamento horizontal */
+    }
+
+    /* Ajusta a largura dos cards para caber perfeitamente na tela do celular */
+    .card-membro {
+        width: 100%;
+        max-width: 360px;
+        min-width: unset;
+    }
+
+    /* Ajustes gerais de espaçamento para mobile */
+    .hero {
+        margin-top: 80px;
+        min-height: 70vh;
+    }
+
+    .titulo-secao {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+}
